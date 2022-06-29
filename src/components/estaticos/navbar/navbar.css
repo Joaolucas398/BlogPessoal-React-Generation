@@ -1,16 +1,8 @@
-.MuiAppBar-colorPrimary{
-    color: white!important;
-    background-color: #000000!important;
-}
-.MuiToolbar-root{
-    justify-content: space-around!important;
-    
-
+.cursor{
+   cursor: pointer;
+   color:white 
 }
 
-#logo{
-   max-height: 48px;
-   margin: 10px;
-   
-
+.text-decorator-none{
+    text-decoration: none;
 }

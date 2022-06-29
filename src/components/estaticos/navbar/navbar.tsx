@@ -1,43 +1,52 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography, Box, Button } from '@material-ui/core';
 import './navbar.css';
+import { Link } from 'react-router-dom';
 function Navbar() {
     return (
         <>
-            <AppBar position="static">
-                <Toolbar variant="dense">
-                    <Box display="flex" >
-                        
-                        <Box mx={1} style={{ cursor: "pointer" }}>
+        <AppBar position="static">
+            <Toolbar variant="dense">
+                <Box className='cursor' >
+                    <Typography variant="h5" color="inherit">
+                        BlogPessoal
+                    </Typography>
+                </Box>
+
+                <Box display="flex" justifyContent="start">
+                    <Box mx={1} className='cursor'>
+                        <Typography variant="h6" color="inherit">
+                            home
+                        </Typography>
+                    </Box>
+                    <Box mx={1} className='cursor'>
+                        <Typography variant="h6" color="inherit">
+                            postagens
+                        </Typography>
+                    </Box>
+                    <Box mx={1} className='cursor'>
+                        <Typography variant="h6" color="inherit">
+                            temas
+                        </Typography>
+                    </Box>
+                    <Box mx={1} className='cursor'>
+                        <Typography variant="h6" color="inherit">
+                            cadastrar tema
+                        </Typography>
+                    </Box>
+                    <Link to='/login' className='text-decorator-none'>
+                        <Box mx={1} className='cursor'>
                             <Typography variant="h6" color="inherit">
-                                Como funciona?
+                                logout
                             </Typography>
                         </Box>
-                        <Box mx={1} style={{ cursor: "pointer" }}>
-                            <Typography variant="h6" color="inherit">
-                                Dúvidas Frequentes
-                            </Typography>
-                        </Box>
+                    </Link>
+                    
+                </Box>
 
-
-                        
-                    </Box>
-                    <Box style={{ cursor: "pointer" }} >
-                       <img id='logo' src='https://nfa-blob-storage.global.ssl.fastly.net/nfa-static/prod/pt_br_logo.svg'  />
-                    </Box>
-                    <Box  >
-                        <Button  variant="contained" >
-                            Entrar
-                        </Button>
-                        </Box>
-                    <Box  >
-                        <Button variant="contained" disableElevation>
-                            Cadastre-se
-                        </Button>
-                    </Box>
-                </Toolbar>
-            </AppBar>
-        </>
+            </Toolbar>
+        </AppBar>
+    </>
     )
 }
 
