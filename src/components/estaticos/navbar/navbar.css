@@ -1,0 +1,16 @@
+.MuiAppBar-colorPrimary{
+    color: white!important;
+    background-color: #000000!important;
+}
+.MuiToolbar-root{
+    justify-content: space-around!important;
+    
+
+}
+
+#logo{
+   max-height: 48px;
+   margin: 10px;
+   
+
+}
