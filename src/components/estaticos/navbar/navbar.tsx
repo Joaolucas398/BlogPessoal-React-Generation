@@ -8,15 +8,15 @@ function Navbar() {
         <AppBar position="static">
             <Toolbar variant="dense">
                 <Box className='cursor' >
-                    <Typography variant="h5" color="inherit">
-                        BlogPessoal
+                    <Typography variant="h4" >
+                        Vida Dev
                     </Typography>
                 </Box>
 
                 <Box display="flex" justifyContent="start">
                     <Box mx={1} className='cursor'>
                         <Typography variant="h6" color="inherit">
-                            home
+                             home
                         </Typography>
                     </Box>
                     <Box mx={1} className='cursor'>
