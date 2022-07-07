@@ -43,7 +43,7 @@ function Login() {
         async function onSubmit(e: ChangeEvent<HTMLFormElement>){
             e.preventDefault();
             try{
-                 await  login ('/usuarios/logar', userLogin,setToken)
+                 await  login (`/usuarios/logar`, userLogin,setToken)
                  
                  alert('Usúario logado com sucesso!')   
             }catch(error){

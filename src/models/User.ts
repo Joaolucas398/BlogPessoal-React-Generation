@@ -1,4 +1,4 @@
-interface User{
+interface Usuario{
     id: number;
     nome: string;
     usuario: string;
@@ -7,4 +7,4 @@ interface User{
    
 
 }
-export default User;
+export default Usuario;
