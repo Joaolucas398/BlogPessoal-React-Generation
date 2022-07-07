@@ -12,7 +12,7 @@ import UserLogin from "../../models/UserLogin";
 
 function Login() {
 
-    let history = useNavigate();
+    let navigate = useNavigate();
     const [token, setToken] = useLocalStorage('token');
 
 
@@ -36,7 +36,7 @@ function Login() {
 
         useEffect(()=>{
             if(token != ''){
-                history('/home', {replace: true});
+                navigate('/home', {replace: true});
             }
         },[token])
 
