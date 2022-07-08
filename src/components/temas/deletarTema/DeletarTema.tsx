@@ -5,6 +5,8 @@ import { buscaId, deleteId } from '../../../services/Service';
 import useLocalStorage from 'react-use-localstorage';
 import { useNavigate, useParams } from 'react-router-dom';
 import Tema from '../../../models/Tema';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReducer';
 
 
 
@@ -12,9 +14,10 @@ function DeletarTema() {
   
   let navigate = useNavigate();
   const { id } = useParams<{id: string}>();
-  const [token, setToken] = useLocalStorage('token');
-  const [tema, setTema] = useState<Tema>()
-
+  const [tema, setTema] = useState<Tema>();
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+  )
   useEffect(() => {
       if (token == "") {
           alert("Você precisa estar logado")
