@@ -14,7 +14,7 @@ function CadastroTema() {
     const token = useSelector<TokenState, TokenState["tokens"]>(
         (state) => state.tokens
     )
-    const [tema, setTema] = useState<Tema>({
+    const [temas, setTema] = useState<Tema>({
         id: 0,
         descricao: ''
     })
@@ -33,7 +33,7 @@ function CadastroTema() {
     },[id])
 
     async function findById(id:string) {
-        buscaId(`/tema/${id}`, setTema,{
+        buscaId(`/temas/${id}`, setTema,{
             headers:{
                 'Authorization': token
             }
@@ -43,25 +43,25 @@ function CadastroTema() {
 
     function updatedTema(e: ChangeEvent<HTMLInputElement>){
         setTema({
-            ...tema,
+            ...temas,
             [e.target.name]:e.target.value,
         })
     }
 
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
-        console.log("tema " + JSON.stringify(tema))
+        console.log("temas " + JSON.stringify(temas))
 
         if (id !== undefined) {
-            console.log(tema)
-            put(`/tema`, tema, setTema, {
+            console.log(temas)
+            put(`/temas`, temas, setTema, {
                 headers: {
                     'Authorization': token
                 }
             })
             alert('Tema atualizado com sucesso');
         } else {
-            post(`/tema`, tema, setTema, {
+            post(`/temas`, temas, setTema, {
                 headers: {
                     'Authorization': token
                 }
@@ -81,7 +81,7 @@ function CadastroTema() {
         <Container maxWidth="sm" className="topo">
             <form onSubmit={onSubmit}>
                 <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro tema</Typography>
-                <TextField value={tema.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTema(e)} id="descricao" label="descricao" variant="outlined" name="descricao" margin="normal" fullWidth />
+                <TextField value={temas.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTema(e)} id="descricao" label="descricao" variant="outlined" name="descricao" margin="normal" fullWidth />
                 <Button type="submit" variant="contained" color="primary">
                     Finalizar
                 </Button>

@@ -21,17 +21,18 @@ function ListaTema() {
     }
   },[token])
 
-  async function getTema(){
-    await busca("/tema", setPosts,{
-      headers:{
+  async function getPost() {
+    await busca("/postagens", setPosts, {
+      headers: {
         'Authorization': token
       }
     })
   }
 
-
   useEffect(() => {
-    getTema()
+
+    getPost()
+
   }, [post.length])
 
   return (
@@ -50,11 +51,11 @@ function ListaTema() {
               {post.titulo}
             </Typography>
 
-            <Typography variant="h5" component="h2">
+            <Typography variant="h5" component="p">
               {post.texto}
             </Typography>
 
-            <Typography variant="h5" component="h2">
+            <Typography variant="h5" component="p">
               {post.tema?.descricao}
             </Typography>
 
@@ -62,14 +63,14 @@ function ListaTema() {
           <CardActions>
             <Box display="flex" justifyContent="center" mb={1.5} >
 
-              <Link to={'/formularioPostagem/${tema.id}'} className="text-decorator-none">
+              <Link to={'/formularioPostagem/${temas.id}'} className="text-decorator-none">
                 <Box mx={1}>
                   <Button variant="contained" className="marginLeft" size='small' color="primary" >
                     atualizar
                   </Button>
                 </Box>
               </Link>
-              <Link  to={'/deletaPostagem/${tema.id}'} className="text-decorator-none">
+              <Link  to={'/deletarPostagem/${temas.id}'} className="text-decorator-none">
                 <Box mx={1}>
                   <Button variant="contained" size='small' color="secondary">
                     deletar
