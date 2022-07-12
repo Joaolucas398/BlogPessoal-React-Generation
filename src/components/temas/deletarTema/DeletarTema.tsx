@@ -7,6 +7,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Tema from '../../../models/Tema';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
+import { toast } from 'react-toastify';
 
 
 
@@ -47,7 +48,17 @@ function DeletarTema() {
               'Authorization': token
             }
           });
-          alert('Tema deletado com sucesso');
+          toast.success('Tema deletado com sucesso! ',{ 
+
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored"
+        })
         }
       
         function nao() {

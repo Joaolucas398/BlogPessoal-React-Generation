@@ -6,6 +6,7 @@ import Tema from '../../../models/Tema';
 import { buscaId, post, put } from '../../../services/Service';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
+import { toast } from 'react-toastify';
 
 
 function CadastroTema() {
@@ -14,7 +15,7 @@ function CadastroTema() {
     const token = useSelector<TokenState, TokenState["tokens"]>(
         (state) => state.tokens
     )
-    const [temas, setTema] = useState<Tema>({
+    const [tema, setTema] = useState<Tema>({
         id: 0,
         descricao: ''
     })
@@ -43,30 +44,50 @@ function CadastroTema() {
 
     function updatedTema(e: ChangeEvent<HTMLInputElement>){
         setTema({
-            ...temas,
+            ...tema,
             [e.target.name]:e.target.value,
         })
     }
 
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
-        console.log("temas " + JSON.stringify(temas))
+        console.log("temas " + JSON.stringify(tema))
 
         if (id !== undefined) {
-            console.log(temas)
-            put(`/temas`, temas, setTema, {
+            console.log(tema)
+            put(`/temas`, tema, setTema, {
                 headers: {
                     'Authorization': token
                 }
             })
-            alert('Tema atualizado com sucesso');
+            toast.success('Tema cadastrado com sucesso! ',{ 
+
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored"
+            })
         } else {
-            post(`/temas`, temas, setTema, {
+            post(`/temas`, tema, setTema, {
                 headers: {
                     'Authorization': token
                 }
             })
-            alert('Tema cadastrado com sucesso');
+            toast.success('Tema cadastrado com sucesso! ',{ 
+
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored"
+            })
         }
         back()
 
@@ -81,7 +102,7 @@ function CadastroTema() {
         <Container maxWidth="sm" className="topo">
             <form onSubmit={onSubmit}>
                 <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro tema</Typography>
-                <TextField value={temas.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTema(e)} id="descricao" label="descricao" variant="outlined" name="descricao" margin="normal" fullWidth />
+                <TextField value={tema.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTema(e)} id="descricao" label="descricao" variant="outlined" name="descricao" margin="normal" fullWidth />
                 <Button type="submit" variant="contained" color="primary">
                     Finalizar
                 </Button>
