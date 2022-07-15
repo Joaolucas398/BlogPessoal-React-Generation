@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/estaticos/navbar/navbar';
+
 import Footer from './components/estaticos/footer/footer';
 import Login from './pages/login/Login';
 import Home from './pages/home/Home';
@@ -10,12 +10,15 @@ import ListaTema from './components/temas/listatema/listatema';
 import ListaPostagem from './components/postagens/listapostagem/listapostagem';
 import CadastroPost from './components/postagens/cadastroPost/CadastroPost';
 import CadastroTema from './components/temas/cadastroTema/CadastroTema';
-import DeletarPostagem from './components/postagens/deletarPostagem/DeletarPostagem';
+
 import DeletarTema from './components/temas/deletarTema/DeletarTema';
 import { Provider } from 'react-redux';
 import store from './store/store';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import DeletarPostagem from './components/postagens/deletarPostagem/deletarPostagem';
+import Navbar from './components/estaticos/navbar/navbar';
+
 
 function App() {
   return (
