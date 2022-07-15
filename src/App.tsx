@@ -16,7 +16,7 @@ import { Provider } from 'react-redux';
 import store from './store/store';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import DeletarPostagem from './components/postagens/deletarPostagem/deletarPostagem';
+import DeletarPostagem from './components/postagens/deletarPostagem/DeletarPostagem';
 import Navbar from './components/estaticos/navbar/navbar';
 
 
